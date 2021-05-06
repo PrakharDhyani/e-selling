@@ -22,37 +22,22 @@ var products = {
     },
   },
 };
-
 // ===============Search params===========
-
 var search_params = {
   quantity: "",
   color: "",
   quality: "",
   style: "",
 };
-
-// Additional pricing rules:
-
-// 1. The prices above are for Basic quality (q150).
-// The high quality shirt (190g/m2) has a 12% increase in the unit price.
-
-// 2. Apply the following discounts for higher quantities:
-// 1: above 1.000 units - 20% discount
-// 2: above 500 units - 12% discount
-// 3: above 100 units - 5% discount
-
-// Solution:
-
 var finalColor = "colored",
   finalStyle = "printed",
   finalQuantity = 10,
   finalQuality = "Basic quality (q150)",
   finalCost,
   finalImage = "img/v-color-personalized.png";
-  $(function () {
-    updateImage();
-    updateCost();
+$(function () {
+  updateImage();
+  updateCost();
   // ================================quantity==================================
   $("#quantity").change(function () {
     search_params.quantity = $("#quantity").val();
@@ -119,6 +104,7 @@ var finalColor = "colored",
   });
   //===================T O T A L     C O S T=========================================
   function updateCost() {
+    $(".refresh-loader").show();
     finalCost = products[finalColor][finalStyle].unit_price;
     if (finalQuality == "High (190g / m2)") {
       //high quality price increase
@@ -133,7 +119,12 @@ var finalColor = "colored",
       finalCost *= 0.95;
     }
 
-    $("#total-price").text(finalCost);
+    $("#total-price").text(
+      finalCost.toLocaleString("en-US", { style: "currency", currency: "USD" })
+    );
+    window.setTimeout( function () {
+      $(".refresh-loader").hide();
+    },500)
     // console.log(finalCost);
   }
   function updateImage() {
@@ -143,7 +134,7 @@ var finalColor = "colored",
     $("#photo-product").attr("src", finalImage);
     // console.log(finalImage);
   }
-     $("#complete-order").click(function () {
-     alert("Thank You.....! Your Order has been Placed");
-     });
+  $("#complete-order").click(function () {
+    alert("Thank You.....! Your Order has been Placed");
+  });
 });
