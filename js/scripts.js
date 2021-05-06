@@ -145,5 +145,5 @@ var finalColor = "colored",
   }
      $("#complete-order").click(function () {
      alert("Thank You.....! Your Order has been Placed");
-     }
+     });
 });
