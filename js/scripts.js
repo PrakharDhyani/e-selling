@@ -143,4 +143,7 @@ var finalColor = "colored",
     $("#photo-product").attr("src", finalImage);
     // console.log(finalImage);
   }
+     $("#complete-order").click(function () {
+     alert("Thank You.....! Your Order has been Placed");
+     }
 });
