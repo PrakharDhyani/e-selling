@@ -86,6 +86,13 @@
                     <div class="filters small-12 columns">
                             
                         <div class="single-filter">
+                            <span class="filter-label">Gender</span>
+                            <select id="gender">
+                                <option value="male">male</option>
+                                <option value="female">female</option>
+                            </select>
+                        </div>
+                        <div class="single-filter">
                             <span class="filter-label">Quantity</span>
                             <input type="number" id="quantity" value="10">
                         </div>
@@ -127,6 +134,7 @@
                         <div class="product-description small-12 medium-7 columns">
                             <h2>Order details</h2>
 
+                            <p>Gender: <span id="result-gender"></span> </p>
                             <p>Product: <span id="result-product">Basic t-shirt</span> </p>
                             <p>Style: <span id="result-style"></span> </p>
                             <p>Quality: <span id="result-quality"></span> </p>
