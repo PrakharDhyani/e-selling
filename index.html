@@ -57,7 +57,25 @@
 
     
         <main>
+            <h3 style="display: inline;"> Enter Your Name</h3>
+           <br>
+            <div id="name-field" style="display: inline-block;">
 
+                <input id="name-user"style="display: inline;" type="text" placeholder="Type your name...">
+        
+                &nbsp;&nbsp;
+
+                <button id="submit-name"style="display: inline;">Submit</button>
+                <br>
+
+            </div>
+
+
+            <p id="welcome-area" style="font-weight: bold; font-size: 18px; color: #27ae61; display: none;">
+                <span id="welcome-text">Hi Ivan, how are you?</span>
+                <br>
+                <span id="not-me">Not Ivan?</span>
+            </p>
 
             <div class="global-page-container">
 
@@ -116,7 +134,7 @@
                             <p>Quantity: <span id="result-quantity"></span> </p>
                             
                             <p>Total: </p>
-                            <div id="price">US$<span id="total-price"></span></div>
+                            <div id="price">US<span id="total-price"></span></div>
 
                             <div id="complete-order">Complete order</div>
 
