@@ -137,4 +137,28 @@ $(function () {
   $("#complete-order").click(function () {
     alert("Thank You.....! Your Order has been Placed");
   });
+    $("#submit-name").click(function () {
+    var name = $("#name-user").val();
+    if (!name) {
+      alert("Enter you name");
+    } else {
+      localStorage.setItem("name", name);
+      great_user();
+    }
+  });
+  $("#not-me").click(function () {
+    localStorage.removeItem("name");
+    $("#welcome-area").hide();
+    $("#name-user").val("");
+    $("#name-field").show();
+  });
+  function great_user() {
+    $("#name-field").hide();
+    $("#welcome-text").text("Hi " + localStorage.name + ", how are you?");
+    $("#not-me").text("Not " + localStorage.name + " ?");
+    $("#welcome-area").show();
+  }
+  if (localStorage.name) {
+    great_user();
+  }
 });
